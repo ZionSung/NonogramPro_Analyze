@@ -13,8 +13,8 @@ int Commander::Start( int* data ){
     Board oldBoard;
     Board fixPaintBoard;
     int new_pixel = 1;
-    //fixPaintBoard = fpSolver.lineSolving( data, fixPaintBoard );
-    //useBoard.CompareBoard( b, fixPaintBoard );
+    fixPaintBoard = fpSolver.lineSolving( data, fixPaintBoard );
+    useBoard.CompareBoard( b, fixPaintBoard );
     //return CORRECT;
     newBoard = lgSolver.RLmost( data, newBoard );
     //useBoard.printBoard(newBoard);
@@ -24,12 +24,12 @@ int Commander::Start( int* data ){
         oldBoard = newBoard;
         newBoard = lgSolver.Sub2( data, newBoard );
         newBoard = lgSolver.Sub1( data, newBoard );
-        //useBoard.printBoard(oldBoard);
+        useBoard.printBoard(oldBoard);
         new_pixel = useBoard.CompareBoard( oldBoard, newBoard );
         printf("check2\n");
         useBoard.printBoard(newBoard);
         
-        if( round == 1 ){
+        if( round == 10 ){
             break;
         }
         round++;

@@ -287,11 +287,12 @@ Board LogicSolver::Sub2( int *data, Board b ){
                     int begin_mayOne = hasPainted_seg_place[i] - remaining_blank;
                     int end_mayOne = hasPainted_seg_place[i] + hasPainted_seg_len[i] + remaining_blank - 1;
                     int current_place = hasPainted_seg_place[i];
-                    //printf("begin_mayOne = %d, end_mayOne = %d\n", begin_mayOne, end_mayOne );
+                    printf("begin_mayOne = %d, end_mayOne = %d\n", begin_mayOne, end_mayOne );
 
                     // check whether it will touch each other
                     if( i == 1 ){
-                        if( end_mayOne >= hasPainted_seg_place[i+1] || hasPainted_seg_place[i+1] - data[dataShift+i+1] + hasPainted_seg_len[i+1] <=  end_mayOne ){
+                        if( ((end_mayOne >= hasPainted_seg_place[i+1]) && (hasPainted_seg_place[i+1] != 0)) || ((hasPainted_seg_place[i+1] - data[dataShift+i+1] + hasPainted_seg_len[i+1] <=  end_mayOne) && (hasPainted_seg_place[i+1] != 0)) ){
+                            printf("hasPainted_seg_place[i+1] = %d\n", hasPainted_seg_place[i+1]);
                             printf("cover another clue X! (1)\n");
                             break;
                         }
