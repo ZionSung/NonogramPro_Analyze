@@ -24,7 +24,7 @@ int Commander::Start( int* data ){
         oldBoard = newBoard;
         newBoard = lgSolver.Sub2( data, newBoard );
         newBoard = lgSolver.Sub1( data, newBoard );
-        useBoard.printBoard(oldBoard);
+        //useBoard.printBoard(newBoard);
         new_pixel = useBoard.CompareBoard( oldBoard, newBoard );
         printf("check2\n");
         useBoard.printBoard(newBoard);

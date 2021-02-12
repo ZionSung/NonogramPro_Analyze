@@ -216,7 +216,6 @@ Board LogicSolver::Sub2( int *data, Board b ){
             hasPainted_seg_place[i] = 0;
         }
 
-        
         printf("clue -> ");
         for( int i = 0; i < j; i++ ){
             printf("%d ", data[dataShift+i+1]);
@@ -355,7 +354,6 @@ Board LogicSolver::Sub2( int *data, Board b ){
                     }
                     else{
                         printf("***************\nNormal Start\n***************\n");
-
                         // check margin 
                         printf("check margin => ");
                         printf("begin = %d, end = %d\n", begin_mayOne, end_mayOne );
@@ -420,12 +418,18 @@ Board LogicSolver::Sub2( int *data, Board b ){
                                 begin_mayOne = i;
                                 // paint 1 
                                 for( int i = begin_mayOne; i <= end_mayOne; i++ ){
+                                    printf("i = %d\n", i );
                                     line[i] = 1;
                                 }
                                 // paint 0
                                 if( begin_mayOne != 0 && end_mayOne != Len ){
-                                    line[end_mayOne+1] = 0;
-                                    line[begin_mayOne-1] = 0;
+                                    if( ((end_mayOne + 1) >= Len) || ((begin_mayOne-1) < 0) ){
+                                        printf("end_mayOne+1 = %d, begin_mayOne-1 = %d\n", end_mayOne+1, begin_mayOne-1);
+                                    }
+                                    else{
+                                        line[end_mayOne+1] = 0;
+                                        line[begin_mayOne-1] = 0;
+                                    }
                                 }
                     
                                 break;
@@ -441,7 +445,7 @@ Board LogicSolver::Sub2( int *data, Board b ){
 
                         //printf("***************\nNormal End\n***************\n");
                         may_be_one_flag = 1;
-                        //printf("begin_mayOne = %d, end_mayOne = %d\n", begin_mayOne, end_mayOne );
+                        printf("begin_mayOne = %d, end_mayOne = %d\n", begin_mayOne, end_mayOne );
                         for( int count = begin_mayOne; count <= end_mayOne; count++ ){
                             may_be_one[count] = 1;
                         } 
