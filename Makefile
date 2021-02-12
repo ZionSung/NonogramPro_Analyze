@@ -10,7 +10,7 @@ LDFLAGS =
 # Makefile settings - Can be customized.
 APPNAME = go
 EXT = .cpp
-SRCDIR = /mnt/c/Users/1122O/OneDrive/桌面/NonogramPro_Analyze
+SRCDIR = /Users/zionsung/NonogramPro_Analyze
 OBJDIR = obj
 
 ############## Do not change anything from here downwards! #############
